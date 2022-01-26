@@ -1,0 +1,42 @@
+f = open("Desktop\poem.txt", "r")
+character=0
+space=0
+lower=0
+upper=0
+j=0
+l=0
+i=0
+wrd=[]
+word2=[]
+vowel=0
+while True: 
+    c=f.read(1)
+    if(c.isalpha()):
+        character+=1
+        if(c.islower()):
+            lower+=1
+        elif(c.isupper()):
+            upper+=1
+#print(c)
+    elif(c==" "):
+        space+=1
+#print(c)
+    if not c:
+        break
+print("No. of alphabets:",character)
+print("No. of whitespace:",space)
+print("No. of UPPERCASE alphabets:",upper)
+print("No. of lowercase alphabets:",lower)
+f.seek(0,0)
+for i in f:
+    x=i.split(' ')
+    for j in x: 
+        if(j[0]=='a' or j[0]=='e' or j[0]=='o' or j[0]=='u' or j[0]=='i' or j[0]=='A' or j[0]=='E' or j[0]=='I' or j[0]=='O' or j[0]=='u'):
+            vowel+=1
+        wrd.append(j)
+print("No. of words starting with vowel:",vowel)
+word2=list(dict.fromkeys(wrd))
+for j in range(len(word2)):
+        l=wrd.count(word2[j])
+        print(word2[j],":",l)
+    
